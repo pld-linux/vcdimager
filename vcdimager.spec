@@ -5,18 +5,17 @@ Version:	0.7.13
 Release:	1
 License:	GPL
 Group:		Applications/File
-URL:		http://www.gnu.org/software/vcdimager/
 Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7_UNSTABLE/%{name}-%{version}.tar.gz
 # Source0-md5:	194b8ffa465e45c609f8c3551787f566
 Patch0:		%{name}-m4.patch
-BuildRequires:	libtool
+URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.8
-Requires:	libxml2 >= 2.3.8
 BuildRequires:	popt-devel
+Requires:	libxml2 >= 2.3.8
 Requires:	popt
-Requires:	fix-info-dir
 # required only for m4 macros
 ##BuildRequires:	gnome-libs-devel
 ##BuildRequires:	popt-devel
@@ -45,7 +44,7 @@ strumienia mpeg z obrazów (oraz ju¿ wypalonych p³yt VideoCD).
 %build
 rm -f missing
 %{__libtoolize}
-%{__aclocal} -I ./
+%{__aclocal} -I .
 %{__autoconf}
 %{__automake}
 %configure
