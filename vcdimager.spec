@@ -10,6 +10,7 @@ Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7_UNSTABLE/%{name}-%
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-pc.patch
+Patch3:		%{name}-gcc34.patch
 URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6.0
@@ -74,6 +75,7 @@ Statyczne biblioteki vcd.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 cp -f libpopt.m4 acinclude.m4
 
