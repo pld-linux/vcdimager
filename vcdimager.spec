@@ -20,11 +20,12 @@ BuildRequires:	libcdio-devel >= 0.71
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	pkgconfig
-BuildRequires:	popt-devel
+BuildRequires:	popt-devel >= 1.7
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
 Requires:	libcdio >= 0.71
 Requires:	libxml2 >= 2.6.11
+Requires:	popt >= 1.7
 Obsoletes:	vcdimager-cdio
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
