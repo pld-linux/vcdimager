@@ -5,8 +5,6 @@ Version:	0.6.2
 Release:	2
 License:	GPL
 Group:		Applications/File
-Group(de):	Applikationen/Datei
-Group(pl):	Aplikacje/Pliki
 URL:		http://www.gnu.org/software/vcdimager/
 Source0:	http://www.gnu.org/pub/gnu/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-m4.patch
