@@ -12,17 +12,18 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-pc.patch
 Patch3:		%{name}-gcc34.patch
 Patch4:		%{name}-libxml.patch
+Patch5:		%{name}-cdio.patch
 URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6.0
-BuildRequires:	libcdio-devel >= 0.65
+BuildRequires:	libcdio-devel >= 0.71
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
-Requires:	libcdio >= 0.65
+Requires:	libcdio >= 0.71
 Requires:	libxml2 >= 2.6.11
 Obsoletes:	vcdimager-cdio
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,7 +50,7 @@ Summary:	Header files for vcd libraries
 Summary(pl):	Pliki nag³ówkowe bibliotek vcd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcdio-devel >= 0.65
+Requires:	libcdio-devel >= 0.71
 Obsoletes:	vcdimager-cdio-devel
 
 %description devel
@@ -78,6 +79,7 @@ Statyczne biblioteki vcd.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 cp -f libpopt.m4 acinclude.m4
 
