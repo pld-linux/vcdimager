@@ -45,8 +45,8 @@ strumienia mpeg z obrazów (oraz ju¿ wypalonych p³yt VideoCD).
 rm missing
 libtoolize --copy --force
 aclocal -I %{_aclocaldir}/gnome
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
