@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/File
 URL:		http://www.gnu.org/software/vcdimager/
 Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7_UNSTABLE/%{name}-%{version}.tar.gz
+# Source0-md5:	194b8ffa465e45c609f8c3551787f566
 Patch0:		%{name}-m4.patch
 BuildRequires:	libtool
 BuildRequires:	automake
