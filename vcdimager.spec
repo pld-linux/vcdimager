@@ -1,18 +1,14 @@
 Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl):	Narzêdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
-Version:	0.7.20
-Release:	3
+Version:	0.7.21
+Release:	1
 License:	GPL
 Group:		Applications/File
-Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
-# Source0-md5:	fc36c46e296671f2fc35b6811a1aeb52
-Patch0:		%{name}-link.patch
-Patch1:		%{name}-info.patch
-Patch2:		%{name}-pc.patch
-Patch3:		%{name}-gcc34.patch
-Patch4:		%{name}-libxml.patch
-Patch5:		%{name}-cdio.patch
+#Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
+# Source0-md5:	d3a02f309d0e487be2a2eb1187a70afa
+Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6.0
@@ -76,11 +72,6 @@ Statyczne biblioteki vcd.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
 
 cp -f libpopt.m4 acinclude.m4
 
