@@ -5,7 +5,7 @@ Version:	0.7.20
 Release:	3
 License:	GPL
 Group:		Applications/File
-Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7_UNSTABLE/%{name}-%{version}.tar.gz
+Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
 # Source0-md5:	fc36c46e296671f2fc35b6811a1aeb52
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
