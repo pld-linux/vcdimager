@@ -1,26 +1,30 @@
-Summary:	VideoCD (pre-)mastering and ripping tool
+Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl):	Narzêdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
-Version:	0.7.14
+Version:	0.7.20
 Release:	1
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7_UNSTABLE/%{name}-%{version}.tar.gz
-# Source0-md5:	1c2a076f863f5939d35d2af72c5015bf
-Patch0:		%{name}-m4.patch
+# Source0-md5:	fc36c46e296671f2fc35b6811a1aeb52
+Patch0:		%{name}-link.patch
+Patch1:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
-BuildRequires:	automake
-BuildRequires:	autoconf
-BuildRequires:	libtool
+BuildRequires:	autoconf >= 2.52
+BuildRequires:	automake >= 1.6.0
+BuildRequires:	libcdio-devel >= 0.65
+BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libxml2-devel >= 2.3.8
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
-Requires:	libxml2 >= 2.3.8
-Requires:	popt
-# required only for m4 macros
-##BuildRequires:	gnome-libs-devel
-##BuildRequires:	popt-devel
 BuildRequires:	texinfo
+Requires(post,postun):	/sbin/ldconfig
+Requires:	libcdio >= 0.65
+Requires:	libxml2 >= 2.3.8
+Obsoletes:	vcdimager-cdio
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreqdep	libvcd.so.0 libvcdinfo.so.0
 
 %description
 VCDImager allows you to create VideoCD BIN/CUE CD images from mpeg
@@ -37,17 +41,48 @@ zdolnego do wypalania plików BIN/CUE. VCDRip dostarczany wraz z
 VCDImager pozwala na wykonanie odwrotnej operacji tzn. zrzucenia
 strumienia mpeg z obrazów (oraz ju¿ wypalonych p³yt VideoCD).
 
+%package devel
+Summary:	Header files for vcd libraries
+Summary(pl):	Pliki nag³ówkowe bibliotek vcd
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+Requires:	libcdio-devel >= 0.65
+Obsoletes:	vcdimager-cdio-devel
+
+%description devel
+Header files for vcd libraries.
+
+%description devel -l pl
+Pliki nag³ówkowe bibliotek vcd.
+
+%package static
+Summary:	Static vcd libraries
+Summary(pl):	Statyczne biblioteki vcd
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Obsoletes:	vcdimager-cdio-static
+
+%description static
+Static vcd libraries.
+
+%description static -l pl
+Statyczne biblioteki vcd.
+
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+
+cp -f libpopt.m4 acinclude.m4
 
 %build
-rm -f missing
 %{__libtoolize}
-%{__aclocal} -I .
+%{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--enable-maintainer-mode
 %{__make}
 
 %install
@@ -56,18 +91,32 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%post
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%postun
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+/sbin/ldconfig
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
+%postun
+/sbin/ldconfig
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS BUGS ChangeLog FAQ NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/*
-%{_infodir}/*info*
-%{_mandir}/man?/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%{_mandir}/man1/*.1*
+%{_infodir}/*.info*
+
+%files devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
+%{_includedir}/libvcd
+%{_pkgconfigdir}/*.pc
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
