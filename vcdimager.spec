@@ -1,22 +1,24 @@
 Summary:	VideoCD (pre-)mastering and ripping tool
 Summary(pl):	VideoCD generation tool
 Name:		vcdimager
-Version:	0.6.2
-Release:	2
+Version:	0.7.13
+Release:	1
 License:	GPL
 Group:		Applications/File
 URL:		http://www.gnu.org/software/vcdimager/
-Source0:	http://www.gnu.org/pub/gnu/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7_UNSTABLE/%{name}-%{version}.tar.gz
 Patch0:		%{name}-m4.patch
-Patch1:		%{name}-am_ac.patch
-Patch2:		%{name}-info.patch
 BuildRequires:	libtool
 BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	libxml2-devel >= 2.3.8
+Requires: 	libxml2 >= 2.3.8
+BuildRequires:	popt-devel
+Requires:	popt
 Requires:	fix-info-dir
 # required only for m4 macros
-BuildRequires:	gnome-libs-devel
-BuildRequires:	popt-devel
+##BuildRequires:	gnome-libs-devel
+##BuildRequires:	popt-devel
 BuildRequires:	texinfo
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,13 +40,13 @@ strumienia mpeg z obrazów (oraz ju¿ wypalonych p³yt VideoCD).
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
+
+
 
 %build
 rm -f missing
 %{__libtoolize}
-%{__aclocal} -I %{_aclocaldir}/gnome
+%{__aclocal} -I ./
 %{__autoconf}
 %{__automake}
 %configure
