@@ -12,8 +12,8 @@
  @end direntry
  
  @node Top, Introduction, (dir), (dir)
---- vcdimager-0.7.19-cdio/docs/vcdimager.texi.orig	2003-10-08 15:09:33.000000000 +0200
-+++ vcdimager-0.7.19-cdio/docs/vcdimager.texi	2003-12-31 00:42:07.351761808 +0100
+--- vcdimager-0.7.20/docs/vcdimager.texi.orig	2003-10-08 15:09:33.000000000 +0200
++++ vcdimager-0.7.20/docs/vcdimager.texi	2003-12-31 00:42:07.351761808 +0100
 @@ -57,15 +57,15 @@
  @c @summarycontents
  @contents
@@ -24,14 +24,14 @@
 -* VCDImager: (vcdimager).                       GNU Video CD imaging utilities
 -* vcdimager: (vcdimager)vcdimager.              Video CD simple formatter
 -* vcd-info:  (vcdimager)vcd-info.               Video CD diagnostic tool
--* cdxa2mpeg: (vcdimager)cdxa2mpeg.              Strip RIFF/CDXA container
+-* cdxa2mpeg: (vcdimager)cdxa2mpeg.              Strip RIFF/CD-XA container
 -* vcdxminfo: (vcdimager)vcdxminfo.              Display MPEG stream properties
 -* vcdxgen: (vcdimager)vcdxgen.                  Video CD XML template generator
 -* vcdxbuild: (vcdimager)vcdxbuild.              Video CD XML formatter
 +* VCDImager: (vcdimager).		GNU Video CD imaging utilities
 +* vcdimager: (vcdimager)vcdimager.	Video CD simple formatter
 +* vcd-info:  (vcdimager)vcd-info.	Video CD diagnostic tool
-+* cdxa2mpeg: (vcdimager)cdxa2mpeg.	Strip RIFF/CDXA container
++* cdxa2mpeg: (vcdimager)cdxa2mpeg.	Strip RIFF/CD-XA container
 +* vcdxminfo: (vcdimager)vcdxminfo.	Display MPEG stream properties
 +* vcdxgen: (vcdimager)vcdxgen.		Video CD XML template generator
 +* vcdxbuild: (vcdimager)vcdxbuild.	Video CD XML formatter
