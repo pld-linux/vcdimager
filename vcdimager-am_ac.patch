@@ -1,0 +1,30 @@
+diff -urN vcdimager-0.6.2.org/configure.in vcdimager-0.6.2/configure.in
+--- vcdimager-0.6.2.org/configure.in	Sun Jun  3 11:06:39 2001
++++ vcdimager-0.6.2/configure.in	Sun Jun  3 11:15:20 2001
+@@ -35,6 +35,8 @@
+ 
+ enable_cli_fe_popt=no
+ 
++POPT_LIBS=""
++
+ if test "x$enable_cli_fe" = "xyes"; then
+  AC_CHECK_LIB(popt, poptGetContext, POPT_LIBS="-lpopt", enable_cli_fe_popt=yes)
+ fi
+diff -urN vcdimager-0.6.2.org/frontends/cli/Makefile.am vcdimager-0.6.2/frontends/cli/Makefile.am
+--- vcdimager-0.6.2.org/frontends/cli/Makefile.am	Sun Jun  3 11:06:39 2001
++++ vcdimager-0.6.2/frontends/cli/Makefile.am	Sun Jun  3 11:17:31 2001
+@@ -1,14 +1,4 @@
+-if BUILD_CLI_FE_POPT
+-POPT_SUBDIR = popt
+-POPT_INCLUDES = -I$(srcdir)/popt/
+-POPT_LIBS = popt/libpopt.a
+-else
+-POPT_LIBS = -lpopt
+-endif
+-
+ bin_PROGRAMS = vcdimager vcdrip
+-
+-SUBDIRS = $(POPT_SUBDIR)
+ 
+ INCLUDES = $(POPT_INCLUDES) -I $(top_srcdir)/libvcd/ 
+ 
