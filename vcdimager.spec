@@ -1,5 +1,5 @@
 Summary:	VideoCD (pre-)mastering and ripping tool
-Summary(pl):	VideoCD generation tool
+Summary(pl):	Narzêdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
 Version:	0.7.13
 Release:	1
@@ -13,7 +13,7 @@ BuildRequires:	libtool
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libxml2-devel >= 2.3.8
-Requires: 	libxml2 >= 2.3.8
+Requires:	libxml2 >= 2.3.8
 BuildRequires:	popt-devel
 Requires:	popt
 Requires:	fix-info-dir
@@ -32,17 +32,15 @@ already burned VideoCDs) and showing some information about the
 VideoCD.
 
 %description -l pl
-VCDImager pozwala Ci na tworzenie obrazów VideoCD BIN/CUE z plików
-mpeg, które nastêpnie mog± byæ wypalone za pomoc± cdrdao lub innego
-programu zdolnego do wypalania plików BIN/CUE. VCDRip dostarczany wraz
-z VCDImager pozwala na wykonanie odwrotnej operacji tzn. zrzucenia
+VCDImager s³u¿y do tworzenia obrazów VideoCD BIN/CUE z plików mpeg,
+które nastêpnie mog± byæ wypalone za pomoc± cdrdao lub innego programu
+zdolnego do wypalania plików BIN/CUE. VCDRip dostarczany wraz z
+VCDImager pozwala na wykonanie odwrotnej operacji tzn. zrzucenia
 strumienia mpeg z obrazów (oraz ju¿ wypalonych p³yt VideoCD).
 
 %prep
 %setup -q
 %patch0 -p1
-
-
 
 %build
 rm -f missing
@@ -64,7 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
