@@ -1,0 +1,10 @@
+--- vcdimager-0.7.20/libvcdinfo.pc.in.orig	2003-11-10 12:57:46.000000000 +0100
++++ vcdimager-0.7.20/libvcdinfo.pc.in	2004-04-11 22:14:51.675940400 +0200
+@@ -6,6 +6,6 @@
+ Name: libvcdinfo
+ Description: VCD information library
+ Version: @VERSION@
+-Requires: libcdio libvcd
++Requires: libcdio
+ Libs: -L${libdir} -lvcdinfo
+ Cflags: -I${includedir}
