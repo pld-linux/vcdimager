@@ -20,7 +20,7 @@ Requires:	popt
 ##BuildRequires:	gnome-libs-devel
 ##BuildRequires:	popt-devel
 BuildRequires:	texinfo
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 VCDImager allows you to create VideoCD BIN/CUE CD images from mpeg
