@@ -42,9 +42,9 @@ strumienia mpeg z obrazów (oraz ju¿ wypalonych p³yt VideoCD).
 %patch2 -p1
 
 %build
-rm missing
+rm -f missing
 %{__libtoolize}
-aclocal -I %{_aclocaldir}/gnome
+%{__aclocal} -I %{_aclocaldir}/gnome
 %{__autoconf}
 %{__automake}
 %configure
