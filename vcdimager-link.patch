@@ -1,0 +1,10 @@
+--- vcdimager-0.7.19-cdio/lib/Makefile.am.orig	2003-10-16 02:48:23.000000000 +0200
++++ vcdimager-0.7.19-cdio/lib/Makefile.am	2003-12-31 00:05:26.864286752 +0100
+@@ -42,6 +42,7 @@
+ 	stream_stdio.c \
+ 	util.c 
+ 
++libvcdinfo_la_LIBADD = libvcd.la
+ libvcdinfo_la_SOURCES = \
+ 	info.c \
+ 	inf.c \
