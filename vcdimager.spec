@@ -1,25 +1,25 @@
 Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl):	Narzêdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
-Version:	0.7.21
+Version:	0.7.22
 Release:	1
 License:	GPL
 Group:		Applications/File
 #Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
 Source0:	ftp://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
-# Source0-md5:	d3a02f309d0e487be2a2eb1187a70afa
+# Source0-md5:	d7ceca2631fb732ff1257c2d3a7df45d
 Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6.0
-BuildRequires:	libcdio-devel >= 0.71
+BuildRequires:	libcdio-devel >= 0.72
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.7
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
-Requires:	libcdio >= 0.71
+Requires:	libcdio >= 0.72
 Requires:	libxml2 >= 2.6.11
 Requires:	popt >= 1.7
 Obsoletes:	vcdimager-cdio
@@ -47,7 +47,7 @@ Summary:	Header files for vcd libraries
 Summary(pl):	Pliki nag³ówkowe bibliotek vcd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcdio-devel >= 0.71
+Requires:	libcdio-devel >= 0.72
 Obsoletes:	vcdimager-cdio-devel
 
 %description devel
