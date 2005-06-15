@@ -1,3 +1,4 @@
+%bcond_without	static	# don't build static library
 Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl):	Narzêdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
@@ -82,7 +83,8 @@ cp -f libpopt.m4 acinclude.m4
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-maintainer-mode
+	--enable-maintainer-mode \
+	%{!?with_static:--disable-static}
 %{__make}
 
 %install
@@ -117,6 +119,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libvcd
 %{_pkgconfigdir}/*.pc
 
+%if %{with static}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
