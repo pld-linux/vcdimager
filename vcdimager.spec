@@ -1,16 +1,17 @@
+#
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl):	Narzêdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
-Version:	0.7.22
+Version:	0.7.23
 Release:	1
 License:	GPL
 Group:		Applications/File
 #Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
 Source0:	ftp://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
-# Source0-md5:	d7ceca2631fb732ff1257c2d3a7df45d
+# Source0-md5:	5e7d80fdbf0037ad20e438f2a9573253
 Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	autoconf >= 2.52
