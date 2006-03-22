@@ -6,7 +6,7 @@ Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl):	Narzêdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
 Version:	0.7.23
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/File
 #Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
