@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	VideoCD (pre-)mastering and ripping tools
-Summary(pl):	NarzÍdzia do tworzenia i odczytu VideoCD
+Summary(pl.UTF-8):   Narzƒôdzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
 Version:	0.7.23
 Release:	2
@@ -39,16 +39,16 @@ reverse operation. That is, ripping mpeg streams from images (and
 already burned VideoCDs) and showing some information about the
 VideoCD.
 
-%description -l pl
-VCDImager s≥uøy do tworzenia obrazÛw VideoCD BIN/CUE z plikÛw mpeg,
-ktÛre nastÍpnie mog± byÊ wypalone za pomoc± cdrdao lub innego programu
-zdolnego do wypalania plikÛw BIN/CUE. VCDRip dostarczany wraz z
+%description -l pl.UTF-8
+VCDImager s≈Çu≈ºy do tworzenia obraz√≥w VideoCD BIN/CUE z plik√≥w mpeg,
+kt√≥re nastƒôpnie mogƒÖ byƒá wypalone za pomocƒÖ cdrdao lub innego programu
+zdolnego do wypalania plik√≥w BIN/CUE. VCDRip dostarczany wraz z
 VCDImager pozwala na wykonanie odwrotnej operacji tzn. zrzucenia
-strumienia mpeg z obrazÛw (oraz juø wypalonych p≥yt VideoCD).
+strumienia mpeg z obraz√≥w (oraz ju≈º wypalonych p≈Çyt VideoCD).
 
 %package devel
 Summary:	Header files for vcd libraries
-Summary(pl):	Pliki nag≥Ûwkowe bibliotek vcd
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe bibliotek vcd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libcdio-devel >= 0.72
@@ -57,12 +57,12 @@ Obsoletes:	vcdimager-cdio-devel
 %description devel
 Header files for vcd libraries.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe bibliotek vcd.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe bibliotek vcd.
 
 %package static
 Summary:	Static vcd libraries
-Summary(pl):	Statyczne biblioteki vcd
+Summary(pl.UTF-8):   Statyczne biblioteki vcd
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	vcdimager-cdio-static
@@ -70,7 +70,7 @@ Obsoletes:	vcdimager-cdio-static
 %description static
 Static vcd libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki vcd.
 
 %prep
