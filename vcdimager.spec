@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	VideoCD (pre-)mastering and ripping tools
-Summary(pl.UTF-8):   Narzędzia do tworzenia i odczytu VideoCD
+Summary(pl.UTF-8):	Narzędzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
 Version:	0.7.23
 Release:	2
@@ -48,7 +48,7 @@ strumienia mpeg z obrazów (oraz już wypalonych płyt VideoCD).
 
 %package devel
 Summary:	Header files for vcd libraries
-Summary(pl.UTF-8):   Pliki nagłówkowe bibliotek vcd
+Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek vcd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libcdio-devel >= 0.72
@@ -62,7 +62,7 @@ Pliki nagłówkowe bibliotek vcd.
 
 %package static
 Summary:	Static vcd libraries
-Summary(pl.UTF-8):   Statyczne biblioteki vcd
+Summary(pl.UTF-8):	Statyczne biblioteki vcd
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	vcdimager-cdio-static
