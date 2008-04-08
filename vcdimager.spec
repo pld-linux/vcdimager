@@ -10,7 +10,7 @@ Release:	3
 License:	GPL
 Group:		Applications/File
 #Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
-Source0:	ftp://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
 # Source0-md5:	5e7d80fdbf0037ad20e438f2a9573253
 Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
