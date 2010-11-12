@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Narzędzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
 Version:	0.7.23
 Release:	10
-License:	GPL
+License:	GPL v2+
 Group:		Applications/File
 #Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
 Source0:	http://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
@@ -29,7 +29,7 @@ Requires:	popt >= 1.7
 Obsoletes:	vcdimager-cdio
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreqdep	libvcd.so.0 libvcdinfo.so.0
+%define		_noautoreqdep	libvcdinfo.so.0
 
 %description
 VCDImager allows you to create VideoCD BIN/CUE CD images from mpeg
@@ -110,20 +110,35 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog FAQ NEWS README THANKS TODO
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%{_mandir}/man1/*.1*
-%{_infodir}/*.info*
+%attr(755,root,root) %{_bindir}/cdxa2mpeg
+%attr(755,root,root) %{_bindir}/vcd-info
+%attr(755,root,root) %{_bindir}/vcdimager
+%attr(755,root,root) %{_bindir}/vcdxbuild
+%attr(755,root,root) %{_bindir}/vcdxgen
+%attr(755,root,root) %{_bindir}/vcdxminfo
+%attr(755,root,root) %{_bindir}/vcdxrip
+%attr(755,root,root) %{_libdir}/libvcdinfo.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvcdinfo.so.0
+%{_mandir}/man1/cdxa2mpeg.1*
+%{_mandir}/man1/vcd-info.1*
+%{_mandir}/man1/vcdimager.1*
+%{_mandir}/man1/vcdxbuild.1*
+%{_mandir}/man1/vcdxgen.1*
+%{_mandir}/man1/vcdxminfo.1*
+%{_mandir}/man1/vcdxrip.1*
+%{_infodir}/vcd-info.info*
+%{_infodir}/vcdimager.info*
+%{_infodir}/vcdxrip.info*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libvcdinfo.so
+%{_libdir}/libvcdinfo.la
 %{_includedir}/libvcd
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/libvcdinfo.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libvcdinfo.a
 %endif
