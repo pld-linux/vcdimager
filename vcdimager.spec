@@ -16,6 +16,7 @@ Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6.0
+BuildRequires:	help2man
 BuildRequires:	libcdio-devel >= 0.72
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libxml2-devel >= 2.6.11
