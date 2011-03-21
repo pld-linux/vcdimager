@@ -5,32 +5,29 @@
 Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl.UTF-8):	Narzędzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
-Version:	0.7.23
-Release:	10
+Version:	0.7.24
+Release:	1
 License:	GPL v2+
 Group:		Applications/File
-#Source0:	http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%{name}-%{version}.tar.gz
 Source0:	http://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
-# Source0-md5:	5e7d80fdbf0037ad20e438f2a9573253
+# Source0-md5:	3af22978fd79c79d5fda6513b6811145
 Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6.0
 BuildRequires:	help2man
-BuildRequires:	libcdio-devel >= 0.72
+BuildRequires:	libcdio-devel >= 0.76
 BuildRequires:	libtool >= 1:1.4.2-9
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.7
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
-Requires:	libcdio >= 0.72
+Requires:	libcdio >= 0.76
 Requires:	libxml2 >= 2.6.11
 Requires:	popt >= 1.7
 Obsoletes:	vcdimager-cdio
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_noautoreqdep	libvcdinfo.so.0
 
 %description
 VCDImager allows you to create VideoCD BIN/CUE CD images from mpeg
@@ -52,7 +49,7 @@ Summary:	Header files for vcd libraries
 Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek vcd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcdio-devel >= 0.72
+Requires:	libcdio-devel >= 0.76
 Obsoletes:	vcdimager-cdio-devel
 
 %description devel
