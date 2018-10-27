@@ -13,18 +13,18 @@ Source0:	http://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
 # Source0-md5:	3890d73da62d0607c87962c41cd33a29
 Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/vcdimager/
-BuildRequires:	autoconf >= 2.52
+BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake >= 1.6.0
 BuildRequires:	help2man
 BuildRequires:	libcdio-devel >= 2.0.0
 BuildRequires:	libtool >= 1:1.4.2-9
-BuildRequires:	libxml2-devel >= 2.6.11
+BuildRequires:	libxml2-devel >= 1:2.6.11
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.7
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
-Requires:	libcdio >= 0.76
-Requires:	libxml2 >= 2.6.11
+Requires:	libcdio >= 2.0.0
+Requires:	libxml2 >= 1:2.6.11
 Requires:	popt >= 1.7
 Obsoletes:	vcdimager-cdio
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,7 +49,7 @@ Summary:	Header files for vcd libraries
 Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek vcd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcdio-devel >= 0.76
+Requires:	libcdio-devel >= 2.0.0
 Obsoletes:	vcdimager-cdio-devel
 
 %description devel
@@ -75,8 +75,6 @@ Statyczne biblioteki vcd.
 %setup -q
 %patch0 -p1
 
-cp -f libpopt.m4 acinclude.m4
-
 %build
 %{__libtoolize}
 %{__aclocal}
@@ -85,6 +83,7 @@ cp -f libpopt.m4 acinclude.m4
 %{__automake}
 %configure \
 	--enable-maintainer-mode \
+	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static}
 %{__make}
 
