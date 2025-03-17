@@ -1,12 +1,12 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static library
+%bcond_without	static_libs	# static library
 #
 Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl.UTF-8):	Narzędzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
 Version:	2.0.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/File
 Source0:	http://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
@@ -26,7 +26,7 @@ Requires(post,postun):	/sbin/ldconfig
 Requires:	libcdio >= 2.0.0
 Requires:	libxml2 >= 1:2.6.11
 Requires:	popt >= 1.7
-Obsoletes:	vcdimager-cdio
+Obsoletes:	vcdimager-cdio < 0.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -50,7 +50,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek vcd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libcdio-devel >= 2.0.0
-Obsoletes:	vcdimager-cdio-devel
+Obsoletes:	vcdimager-cdio-devel < 0.8
 
 %description devel
 Header files for vcd libraries.
@@ -63,7 +63,7 @@ Summary:	Static vcd libraries
 Summary(pl.UTF-8):	Statyczne biblioteki vcd
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
-Obsoletes:	vcdimager-cdio-static
+Obsoletes:	vcdimager-cdio-static < 0.8
 
 %description static
 Static vcd libraries.
@@ -73,7 +73,7 @@ Statyczne biblioteki vcd.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
