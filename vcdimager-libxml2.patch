@@ -1,0 +1,60 @@
+--- vcdimager-2.0.1/frontends/xml/vcd_xml_common.c.orig	2018-01-03 21:17:37.000000000 +0100
++++ vcdimager-2.0.1/frontends/xml/vcd_xml_common.c	2025-07-20 18:20:47.192016138 +0200
+@@ -223,8 +223,9 @@ static char *
+ _convert (const char in[], const char encoding[], bool from)
+ {
+   unsigned char *out;
+-  int ret, size, out_size, temp;
++  int ret, size, out_size;
+   xmlCharEncodingHandlerPtr handler = 0;
++  xmlBufferPtr inbuf, outbuf;
+ 
+   if (!in)
+     return 0;
+@@ -236,32 +237,30 @@ _convert (const char in[], const char en
+ 
+   size = (int) strlen (in) + 1;
+   out_size = size * 2 - 1;
+-  out = malloc ((size_t) out_size);
+ 
+-  vcd_assert (out != 0);
++  if ((outbuf = xmlBufferCreateSize(out_size)) == NULL)
++    return 0;
++  if ((inbuf = xmlBufferCreateStatic(in, size - 1)) == NULL)
++  {
++    xmlBufferFree(outbuf);
++    return 0;
++  }
+ 
+-  temp = size - 1;
+   if (from) {
+-    if (NULL != handler->output)
+-      ret = handler->output (out, &out_size, (const unsigned char *) in, &temp);
+-    else
+-      return strdup(in);
++    ret = xmlCharEncOutFunc(handler, outbuf, inbuf);
+   } else {
+-    if (NULL != handler->input)
+-      ret = handler->input (out, &out_size, (const unsigned char *) in, &temp);
+-    else
+-      return strdup(in);
++    ret = xmlCharEncInFunc(handler, outbuf, inbuf);
+   }
+ 
+-  if (ret < 0 || (temp - size + 1))
++  xmlBufferFree(inbuf);
++  if (ret < 0)
+     {
+-      free (out);
++      xmlBufferFree (outbuf);
+       vcd_error ("charset conversion failed for encoding '%s'", encoding);
+       return 0;
+     }
+-
+-  out = realloc (out, out_size + 1);
+-  out[out_size] = 0;
++  out = xmlBufferDetach(outbuf);
++  xmlBufferFree(outbuf);
+ 
+   return (char *) out;
+ }
