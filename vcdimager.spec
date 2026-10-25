@@ -6,7 +6,7 @@ Summary:	VideoCD (pre-)mastering and ripping tools
 Summary(pl.UTF-8):	Narzędzia do tworzenia i odczytu VideoCD
 Name:		vcdimager
 Version:	2.0.1
-Release:	6
+Release:	7
 License:	GPL v2+
 Group:		Applications/File
 Source0:	https://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
@@ -49,8 +49,8 @@ strumienia mpeg z obrazów (oraz już wypalonych płyt VideoCD).
 Summary:	Header files for vcd libraries
 Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek vcd
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	libcdio-devel >= 2.0.0
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	libcdio-devel%{?_isa} >= 2.0.0
 Obsoletes:	vcdimager-cdio-devel < 0.8
 
 %description devel
@@ -63,7 +63,7 @@ Pliki nagłówkowe bibliotek vcd.
 Summary:	Static vcd libraries
 Summary(pl.UTF-8):	Statyczne biblioteki vcd
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{version}-%{release}
 Obsoletes:	vcdimager-cdio-static < 0.8
 
 %description static
@@ -119,8 +119,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/vcdxgen
 %attr(755,root,root) %{_bindir}/vcdxminfo
 %attr(755,root,root) %{_bindir}/vcdxrip
-%attr(755,root,root) %{_libdir}/libvcdinfo.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvcdinfo.so.0
+%{_libdir}/libvcdinfo.so.*.*.*
+%ghost %{_libdir}/libvcdinfo.so.0
 %{_mandir}/man1/cdxa2mpeg.1*
 %{_mandir}/man1/vcd-info.1*
 %{_mandir}/man1/vcdimager.1*
@@ -134,7 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libvcdinfo.so
+%{_libdir}/libvcdinfo.so
 %{_includedir}/libvcd
 %{_pkgconfigdir}/libvcdinfo.pc
 
